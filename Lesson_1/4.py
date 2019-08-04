@@ -8,3 +8,25 @@
 то вводятся эти символы. Программа должна вывести на экран любой
 символ алфавита от 'a' до 'f' включительно.
 """
+
+# Прверка вводимых данных не выполняется,
+
+from random import random
+
+int1 = int(input('Введите нижнюю границу целого числа: '))
+int2 = int(input('Введите верхнюю границу целого числа: '))
+randomInt = int(random() * (int2 - int1)) + int1
+
+print(f'Случайное число в диапазоне ({int1}, {int2}) : {randomInt}')
+
+float1 = float(input('Введите нижнюю границу вещественного числа: '))
+float2 = float(input('Введите верхнюю границу вещественного числа: '))
+randomFloat = random() * (float2 - float1) + float1
+
+print(f'Случайное число в диапазоне ({float1}, {float2}) : {randomFloat}')
+
+char1 = ord(input('Ведите начальный символ последовательности: '))
+char2 = ord(input('Ведите конечный символ последовательности: '))
+randomChar = int(random() * (char2 - char1 + 1)) + char1
+
+print(f'Случайный символ из введенной последовательности {chr(char1)} - {chr(char2)}: {chr(randomChar)}')

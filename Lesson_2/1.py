@@ -9,3 +9,49 @@
 Также сообщать пользователю о невозможности деления на ноль,
 если он ввел 0 в качестве делителя.
 """
+
+num1: int
+num2: int
+
+
+def menu():
+    global num1, num2, response
+    while True:
+        num1 = int(input('Ведите 1-е число: '))
+        num2 = int(input('Ведите 2-е число: '))
+
+        print('\nЧто вы желаете сделать с числами?\n')
+        print(' * - умножение')
+        print(' + - сложение')
+        print(' / - деление')
+        print(' - - вычитание')
+        print(' 0 - Exit')
+        action = input('\nВведите действие: ')
+
+        try:
+            if action == '*':
+                response = num1 * num2
+            elif action == '+':
+                response = num1 + num2
+            elif action == '/':
+                response = num1 / num2
+            elif action == '-':
+                response = num1 - num2
+            elif action == '0':
+                print('\nДо свидания\n')
+                quit()
+            else:
+                print('\nНеопознанная команда. Введите снова\n')
+
+        except ValueError:
+            response = 'нет ответа'
+            print('\nНеопознанная команда. Введите снова\n')
+        except ZeroDivisionError:
+            response = 'нет ответа'
+            print('На ноль делить нельзя')
+
+        print(f'С введенной операцией {action} ответ будет: {response}\n')
+
+
+menu()
+
