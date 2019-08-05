@@ -11,5 +11,5 @@ summ = 0  # Начальная сумма элементов ряда
 
 for n in range(number):
     summ += k
-    k /= 2
+    k /= -2
 print(f'Сумма {number} элементов ряда: {summ}')
