@@ -11,5 +11,17 @@ summ = 0  # Начальная сумма элементов ряда
 
 for n in range(number):
     summ += k
-    k /= 2
+    k /= -2
 print(f'Сумма {number} элементов ряда: {summ}')
+
+# С рекурсией
+
+
+def summ_rec(k, l, number, summ):
+    if k == number:
+        return summ
+    elif k < number:
+        return summ_rec(k+1, l/-2, number, summ + l)
+
+
+print(f'Сумма {number} элементов ряда: {summ_rec(0, 1, number, 0)}')
