@@ -2,7 +2,7 @@
 # и максимальный элементы.
 from random import randint
 
-lenght = int(input('Ведите длину массива: '))
+lenght = int(input('Введите длину массива: '))
 mass = [0] * lenght
 
 for i in range(lenght):
