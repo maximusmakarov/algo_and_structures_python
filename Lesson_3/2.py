@@ -6,3 +6,15 @@
 т.к. именно в этих позициях первого массива стоят четные числа.
 """
 
+from random import randint
+
+lenght = int(input('Введете длину массива: '))
+mass = [0] * lenght
+even_mass = []
+for i in range(lenght):
+  mass[i] = randint(0, 101)
+  if mass[i]%2 == 0:
+    even_mass.append(i)
+
+print(f'Сненерированный массив {mass}')
+print(f'Массив индексов четных элементов {even_mass}')
