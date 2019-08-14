@@ -10,7 +10,6 @@ factory = {}
 summ = 0
 q_profit = 0
 n = int(input("Количество заводов: "))
-s = 0
 for i in range(n):
     f_name = input(f'Имя {str(i + 1)}-го завода: ')
     for j in range(4):
