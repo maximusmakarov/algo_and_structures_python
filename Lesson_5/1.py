@@ -5,23 +5,32 @@
 вывести наименования предприятий, чья прибыль выше среднего и отдельно
 вывести наименования предприятий, чья прибыль ниже среднего.
 """
+import collections
 
 factory = {}
-summ = 0
 q_profit = 0
+# a = 1
 n = int(input("Количество заводов: "))
 for i in range(n):
     f_name = input(f'Имя {str(i + 1)}-го завода: ')
-    for j in range(4):
-        q_profit = float(input(f'прибыль за {j+1}-й квартал: '))
+    quart = input(f'прибыль за 4 квартала через пробел: ')
+    q_profit = quart.split(' ')
     factory[f_name] = q_profit
-    summ += q_profit
+    print()
 
-av_profit = summ / n
+fac = collections.Counter(factory)
+summ_all = 0
+for i in fac:
+    summ = 0
+    for j in fac[i]:
+        summ += int(j)
+    fac[i] = summ
+    summ_all += summ
+av_profit = summ_all / n
+
 print(f'\nСредняя прибыль за год всех предприятий: {av_profit}')
 for k in factory:
-    if factory[k] > av_profit:
+    if fac[k] > av_profit:
         print(f'Предприятие с прибылью выше среднего: {k}')
     else:
         print(f'Предприятие с прибылью ниже среднего: {k}')
-
