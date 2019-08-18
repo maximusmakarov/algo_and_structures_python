@@ -16,9 +16,9 @@ for i in range(2):
     numbers[f'{i+1}, {ff}'] = list(ff)
     print(numbers)
 
-sum_numbers = sum([int(''.join(i), 16) for i in numbers])
+sum_numbers = sum([int(''.join(i), 16) for i in numbers.values()])
 print(f'сумма: ', list(f'{sum_numbers:X}'))
-'''%X - Число в шестнадцатеричной системе счисления (буквы в верхнем регистре).'''
+'''X - Число в шестнадцатеричной системе счисления (буквы в верхнем регистре).'''
 
-mult_numbers = reduce(lambda x, y: x * y, [int(''.join(i), 16) for i in numbers])
-print(f'произведение: ', list('%X' % mult_numbers))
+mult_numbers = reduce(lambda x, y: x * y, [int(''.join(i), 16) for i in numbers.values()])
+print(f'произведение: ', list(f'{mult_numbers:X}'))
