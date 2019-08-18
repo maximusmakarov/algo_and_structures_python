@@ -7,3 +7,39 @@
 комментариев к коду. Также укажите в комментариях версию Python
 и разрядность вашей ОС.
 """
+from functools import lru_cache
+from sys import getsizeof
+from pympler import asizeof
+from memory_profiler import profile
+
+
+"""
+Найти сумму n элементов следующего ряда чисел: 1 -0.5 0.25 -0.125 ...
+Количество элементов 100
+"""
+k = 1
+summ = 0
+number = 1000
+
+# Через цикл
+'''Через цикл без кешированияпотребление памяти получается 13,9 ~ 14 Мб, значение Increment не увеличивается потому 
+как мне кажется выделенной памяти для функции и так хватает, не знаю каким способом выделяется для функции определенное
+значение. asizeof (summa) функции 24 байта? getsizeof(summa) = 136 байтам
+getsizeof(summa) = 152 байтам типо с кешем'''
+
+
+@lru_cache(maxsize=None)
+@profile
+def summa(summ, k):
+    for n in range(number):
+        summ += k
+        k /= -2
+    return summ
+
+
+print(asizeof.asizeof(summa(summ, k)))
+print(getsizeof(summa))
+# getsizeof(summa(summ, k))- не показывает значения
+
+if __name__ == '__main__':
+    summa(summ, k)
