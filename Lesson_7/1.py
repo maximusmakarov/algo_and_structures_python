@@ -4,3 +4,13 @@
 исходный и отсортированный массивы. Сортировка должна быть реализована в
 виде функции. По возможности доработайте алгоритм (сделайте его умнее).
 """
+import numpy as np
+lenght = int(input('Введите длину массива: '))
+array = [np.random.randint(-100, 100) for i in range(lenght)]
+print(f'Сгенерированный массив: {array}')
+
+for j in range(lenght-1):
+    for k in range(lenght - j - 1):
+        if array[k] > array[k+1]:
+            array[k], array[k+1] = array[k+1], array[k]
+print(f'Отсортированный массив: {array}')
